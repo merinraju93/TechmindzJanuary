@@ -1,0 +1,120 @@
+package com.pages;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+//import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.FindBy;
+import com.base.TestBase;
+import com.wrapper.Wrapper;
+
+public class CustomersPage extends TestBase
+{
+	
+	  
+		Wrapper wrpobj=new Wrapper();
+		
+	    @FindBy(xpath="//*[text()=\"Customer Login\"]")
+		WebElement pCustomerLogin;
+	    
+	    @FindBy(xpath="//*[@id=\"userSelect\"]")
+	   	WebElement pCustomerNameList;
+	   
+		@FindBy(xpath="//*[@type=\"submit\"]")
+		WebElement pCustomerNameLogin;
+		 
+	   @FindBy(xpath="//*[@id=\"accountSelect\"]")
+		WebElement pSelectAccount;
+	   
+	   @FindBy(xpath="//*[text()=\"Account Number : \"]")
+		WebElement pAccountNumber;
+	   
+	   @FindBy(xpath="//button[@ng-click=\"transactions()\"]")
+	  	WebElement pTransctions;
+	   
+	   @FindBy(xpath="//table[@class=\"table table-bordered table-striped\"]")
+	 	WebElement pTransctionTable;
+	  
+	   @FindBy(xpath="//button[@ng-click=\"deposit()\"]")
+	  	WebElement pDeposit;
+	   
+	   @FindBy(xpath="//button[@ng-click=\"withdrawl()\"]")
+	  	WebElement pWithdrawl;
+	   
+	   @FindBy(xpath="//input[@ng-model=\"amount\"]")
+	  	WebElement pDepositAmount;
+	   
+	   @FindBy(xpath="//button[@ng-click=\"back()\"]")
+	  	WebElement pBackButton;
+	   
+	   
+	   
+	   @FindBy(xpath="//button[@type=\"submit\"]")
+	  	WebElement pSubmitDeposit;
+	   
+	   @FindBy(xpath="//input[@type=\"number\"]")
+	  	WebElement pWithdrawalAmount; 
+	   
+	   @FindBy(xpath=" //*[text()=\"Withdraw\"]")
+	  	WebElement pSubmitWithdrawal;
+	   
+	
+	 //*[text()="Deposit"]
+	 
+	 
+	 	public CustomersPage()
+		{
+		  PageFactory.initElements(driver, this);
+		}
+		
+		
+		public void clickCustomer()
+		{
+			wrpobj.waitForElement(pCustomerLogin);
+			pCustomerLogin.click();
+			wrpobj.waitForElement(pCustomerNameList);
+		    wrpobj.selectByIndex(pCustomerNameList,1);
+		    wrpobj.waitForElement(pCustomerNameLogin);
+		   
+		}
+
+	
+		public void customerNameLogin()
+		{
+			wrpobj.waitForElement(pCustomerNameLogin);
+			pCustomerNameLogin.click();
+			wrpobj.waitForElement(pSelectAccount);
+			
+		}
+		
+		public void clickTransctions()
+		{
+			wrpobj.waitForElement(pTransctions);
+			pTransctions.click();
+			wrpobj.waitForElement(pTransctionTable);
+			
+			wrpobj.waitForElement(pBackButton);
+			pBackButton.click();
+			wrpobj.waitForElement(pTransctions);
+						
+		}
+	
+		
+		public void clickDepositTab()
+		{
+			wrpobj.waitForElement(pDeposit);
+			pDeposit.click();
+			wrpobj.waitForElement(pDepositAmount);
+		
+		}
+		
+		public void clickSubmitDeposit()
+		{
+			pDepositAmount.sendKeys("2500");
+			pSubmitDeposit.click();
+			
+		
+		}
+		
+	}
+
+

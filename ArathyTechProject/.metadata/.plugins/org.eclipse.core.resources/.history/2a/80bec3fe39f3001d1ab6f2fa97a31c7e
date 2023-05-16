@@ -1,0 +1,119 @@
+package com.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.base.TestBase;
+import com.wrapper.Wrapper;
+
+public class BankManagerPage extends TestBase
+
+{
+
+	  
+			Wrapper wrpobj=new Wrapper();
+			
+		    @FindBy(xpath="//*[text()=\"Bank Manager Login\"]")
+			WebElement pBankManagerLogin;
+		    
+		    @FindBy(xpath="//button[@ng-click='addCust()']")
+			WebElement pAddCustomer;
+		   
+		    @FindBy(xpath="//input[@ng-model='fName']")
+			WebElement pFirstName;
+		   
+		   @FindBy(xpath="//input[@ng-model='lName']")
+			WebElement pLastName;
+		   
+		   @FindBy(xpath="//input[@ng-model='postCd']")
+			WebElement pPostCode;
+		   
+		   @FindBy(xpath="//button[@type=\"submit\"]")
+			WebElement pAddSubmit;
+		   
+		  
+		   @FindBy(xpath="//*[@id=\"userSelect\"]")
+			WebElement pSelectCName;
+		   
+		   @FindBy(xpath="//*[@id=\"currency\"]")
+			WebElement pCurrency;
+		   
+		   @FindBy(xpath="//*[text()=\"Process\"]")
+			WebElement pProcess;
+		   
+		   @FindBy(xpath="//button[@ng-click=\"showCust()\"]")
+			WebElement pCustomersList;
+		   
+		   
+		   @FindBy(xpath=" //input[@ng-model=\"searchCustomer\"]")
+			WebElement pSearchCustomers;
+		   
+		
+		 
+		    
+    
+		    public BankManagerPage()
+			{
+			  PageFactory.initElements(driver, this);
+			}
+						
+			public void clickBankManagerLogin()
+			{
+				wrpobj.waitForElement(pBankManagerLogin);
+				pBankManagerLogin.click();
+				wrpobj.waitForElement(pAddCustomer);
+			  			   
+			}
+			
+			public void clickAddCustomer()
+			{
+				wrpobj.waitForElement(pAddCustomer);
+				pAddCustomer.click();
+				wrpobj.waitForElement(pFirstName);			  			   
+			}
+	/*		
+			public void enterCustomerDetails()
+			{
+				pFirstName.sendKeys("Deepika");
+				pLastName.sendKeys("Sharma");
+				pPostCode.sendKeys("Delhi");
+			}*/
+			
+		/*	public String clickSubmitDetails()
+			{
+				wrpobj.waitForElement(pAddSubmit);
+				pAddSubmit.click();			
+				wrpobj.waitForAlert();
+				String pText=wrpobj.getAlertText();
+			    wrpobj.alertAccept();
+			    return pText;
+				//wrpobj.waitForElement(pFirstName);			  			   
+			}*/
+			
+			public void clickOpenAccountTab()
+			{
+				wrpobj.waitForElement(pSelectCName);
+				pSelectCName.click();
+				//wrpobj.waitForElement(pProcess);			  			   
+			}
+			
+			public void clickOpenAccount()
+			{
+				wrpobj.waitForElement(pSelectCName);
+				wrpobj.selectByIndex(pSelectCName, 0);	
+				wrpobj.selectByIndex(pCurrency, 0);
+				pProcess.click();
+				String pText=wrpobj.getAlertText();
+			    wrpobj.alertAccept();
+			}
+			
+			public void clickOnCustomersTab()
+			{
+				wrpobj.waitForElement(pCustomersList);
+				pCustomersList.click();
+				//wrpobj.waitForElement(pProcess);			  			   
+			}
+			
+	
+}

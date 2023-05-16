@@ -1,0 +1,80 @@
+package com.testcases;
+
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.base.TestBase;
+import com.pages.BankManagerPage;
+import com.pages.CustomersPage;
+
+public class BankManagerModule extends TestBase 
+{
+
+
+	BankManagerPage bankManagerPage;
+			public BankManagerModule() 
+			{
+			super();
+		 	}
+			@BeforeClass
+			public void setUp()
+			{
+			initialization();
+			bankManagerPage=new BankManagerPage();
+			}
+			
+			@Test (priority=1)
+			public void customerModule() 
+			{
+			System.out.println("Page Loaded");
+			}
+		  
+			
+			@Test (priority=2)
+			public void clickOnBMLogin() 
+			{
+			bankManagerPage.clickBankManagerLogin();
+			}
+			
+
+			@Test (priority=3)
+			public void clickonAddCustomer() 
+			{
+			bankManagerPage.clickAddCustomer();			
+			}
+			
+		/*	@Test (priority=4)
+			public void enterTheDetails() 
+			{
+			bankManagerPage.enterCustomerDetails();
+			}*/
+			
+
+			@Test (priority=5)
+			public void clickonAddCustomer() 
+			{
+			bankManagerPage.clickAddCustomer();			
+			}
+			
+			
+		/*	@Test (priority=5)
+			public void clickOnAddCustomer() 
+			{
+			bankManagerPage.clickSubmitDetails();		
+			String pText=bankManagerPage.clickSubmitDetails();
+			Assert.assertEquals(pText, "Customer added successfully with customer id :7");
+			
+			}*/
+			
+				@Test (priority=5)
+			public void clickOnOPenAccount() 
+			{
+			bankManagerPage.clickSubmitDetails();		
+			String pText=bankManagerPage.clickSubmitDetails();
+			Assert.assertEquals(pText, "Customer added successfully with customer id :7");
+			
+			}*/
+	
+	
+}

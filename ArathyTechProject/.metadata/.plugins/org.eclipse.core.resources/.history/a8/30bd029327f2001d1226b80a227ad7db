@@ -1,0 +1,61 @@
+
+package com.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.FindBy;
+import com.base.TestBase;
+import com.wrapper.Wrapper;
+
+public class HomePage extends TestBase
+{
+  
+	Wrapper wrpobj=new Wrapper();
+	/*
+    @FindBy(xpath="//button[@ng-click=\"customer()\"]")
+	WebElement pCustomerLogin;
+    
+    @FindBy(xpath="//*[@id=\"userSelect\"]")
+   	WebElement pCustomerNameList;
+   */
+	 @FindBy(xpath="//button[@ng-click=\"manager()\"][1]")
+		WebElement pBMLogin;
+	 @FindBy(xpath="//button[@ng-click=\"addCust()\"]")
+		WebElement pAddcust;
+
+	
+    
+ 	public HomePage()
+	{
+	  PageFactory.initElements(driver, this);
+	}
+	
+	
+	public void clickCustomer()
+	{
+		
+		pBMLogin.click();
+		wrpobj.waitForElement(pAddcust);
+			
+	}
+/*
+	public void clickCustomerNameList()
+	{
+		wrpobj.waitForElement(pCustomerNameLogin);
+		pCustomerNameList.click();
+		
+		//selector.selectByIndex(1);
+	}
+	/*
+	public void customerNameLogin()
+	{
+		
+		pCustomerNameLogin.click();
+		
+	}*/
+	
+	
+	
+	
+}
