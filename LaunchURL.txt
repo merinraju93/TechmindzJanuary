@@ -1,0 +1,113 @@
+package com.testcases;
+
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.base.TestBase;
+import com.pages.HomePage;
+
+public class LaunchURL extends TestBase {
+	HomePage homePage;
+
+	public LaunchURL() {
+		super();
+	}
+
+	@BeforeClass
+	public void setUp() {
+		initialization();
+		homePage = new HomePage();
+
+	}
+
+	@Test(priority = 1)
+	public void launchURL() {
+		System.out.println("URL Launched");
+	}
+
+	@Test(priority = 2)
+	public void ClickCustomer() {
+		homePage.ClickOnCustomerLogin();
+	}
+
+	@Test(priority = 3)
+	public void ClickCustomer3() {
+		homePage.ClickSelectCustomerLogin();
+		homePage.ClickOnLogin();
+	}
+
+	@Test(priority = 4)
+	public void ClickCustomer4() {
+		homePage.ClickDropdownLogin();
+	}
+
+	@Test(priority = 5)
+	public void ClickCustomer5() {
+		homePage.ClickOnTransaction();
+		homePage.ClickOnBack();
+	}
+
+	@Test(priority = 6)
+	public void ClickCustomer6() {
+		homePage.ClickOnDeposit();
+	}
+
+	@Test(priority = 7)
+	public void ClickCustomer7() {
+		String pText = homePage.ClickOnDepositButton();
+		Assert.assertEquals(pText, "please fill out this field");
+	}
+
+	@Test(priority = 8)
+	public void ClickCustomer8() {
+		homePage.ClickTextfield();
+		homePage.ClickOnDeposit();
+	}
+
+	@Test(priority = 9)
+	public void ClickCustomer9() {
+		homePage.ClickOnWithdraw();
+	}
+
+	public void ClickCustomer10() {
+		String pText = homePage.ClickOnWithdrawButton();
+		Assert.assertEquals(pText, "please fill out this field");
+	}
+
+	@Test(priority = 11)
+	public void ClickCustomer11() {
+		homePage.ClickTextfield1();
+		homePage.ClickOnWithdraw();
+	}
+
+	@Test(priority = 12)
+	public void ClickBankManager12() {
+		homePage.ClickOnBankManager();
+		homePage.ClickOnBankAdd();
+	}
+
+	@Test(priority = 13)
+	public void ClickBankManager13() {
+		homePage.ClickOnBankManager();
+		homePage.ClickOnBankAdd();
+	}
+
+	@Test(priority = 14)
+	public void ClickBankManager14() {
+		String pText = homePage.ClickOnAddCustomerButton();
+		Assert.assertEquals(pText, "please fill out this field");
+	}
+
+	@Test(priority = 15)
+	public void ClickBankManager15() {
+		homePage.ClickCustomerfield1();
+		homePage.ClickOnAddCustomerButton();
+	}
+
+	@Test(priority = 16)
+	public void ClickBankManager16() {
+		homePage.ClickSelectBankLogin();
+		homePage.ClickOnProcess();
+	}
+}

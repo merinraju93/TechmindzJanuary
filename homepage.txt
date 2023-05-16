@@ -1,0 +1,168 @@
+package com.pages;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.base.TestBase;
+import com.wrapper.Wrapper;
+
+public class HomePage extends TestBase {
+	Wrapper wrrobj = new Wrapper();
+
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/div[1]/button")
+	WebElement cLogin;
+	@FindBy(xpath = "//select")
+	WebElement cName;
+	@FindBy(xpath = "//button[@type='submit']")
+	WebElement cNameLogin;
+	@FindBy(xpath = "//select")
+	WebElement cDrop;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[3]/button[1]")
+	WebElement cTransact;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/button[1]")
+	WebElement cBackbutton;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[3]/button[2]")
+	WebElement cDepositbutton;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[4]/div/form/button")
+	WebElement depositButton;
+	@FindBy(xpath = "//*[@id=\"editing-view-port\"]/div")
+	WebElement textAmount;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[3]/button[3]")
+	WebElement withdrawButton;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[4]/div/form/button")
+	WebElement withdrawButton2;
+	@FindBy(xpath = "//*[@id=\"editing-view-port\"]/div")
+	WebElement withdrawTextfield;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/div[2]/button")
+	WebElement bBank;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/button[1]")
+	WebElement bAdd;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[2]/div/div/form/button")
+	WebElement bAddutton;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[2]/div/div/form/div[1]/input//div[2]")
+	WebElement bFname;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[2]/div/div/form/div[2]/input//div[2]")
+	WebElement bLname;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[2]/div/div/form/div[3]/input//div[2]")
+	WebElement bPostcode;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[1]/button[2]")
+	WebElement OpenAcc;
+	@FindBy(xpath = "//select")
+	WebElement customName;
+	@FindBy(xpath = "/html/body/div/div/div[2]/div/div[2]/div/div/form/button")
+	WebElement processButton;
+
+	public HomePage() {
+		PageFactory.initElements(driver, this);
+	}
+
+	public void ClickOnCustomerLogin() {
+		wrrobj.waitForElement(cLogin);
+		cLogin.click();
+	}
+
+	public void ClickSelectCustomerLogin() {
+		wrrobj.waitForElement(cName);
+		cName.click();
+		List<WebElement> dropDownList = new ArrayList<WebElement>();
+		dropDownList = driver.findElements(By.xpath("//select//option"));
+		dropDownList.get(3).click();
+	}
+
+	public void ClickOnLogin() {
+		wrrobj.waitForElement(cNameLogin);
+		cNameLogin.click();
+	}
+
+	public void ClickDropdownLogin() {
+		wrrobj.waitForElement(cDrop);
+		cDrop.click();
+		List<WebElement> dropDownList = new ArrayList<WebElement>();
+		dropDownList = driver.findElements(By.xpath("//select//option"));
+		dropDownList.get(2).click();
+	}
+
+	public void ClickOnTransaction() {
+		wrrobj.waitForElement(cTransact);
+		cTransact.click();
+	}
+
+	public void ClickOnBack() {
+		wrrobj.waitForElement(cBackbutton);
+		cBackbutton.click();
+	}
+
+	public void ClickOnDeposit() {
+		wrrobj.waitForElement(cDepositbutton);
+		cDepositbutton.click();
+	}
+
+	public String ClickOnDepositButton() {
+		depositButton.click();
+		wrrobj.waitForAlert();
+		String pText = wrrobj.getAlertText();
+		return pText;
+	}
+
+	public void ClickTextfield() {
+		textAmount.sendKeys("10,000");
+	}
+
+	public void ClickOnWithdraw() {
+		wrrobj.waitForElement(withdrawButton);
+		withdrawButton.click();
+	}
+
+	public String ClickOnWithdrawButton() {
+		withdrawButton2.click();
+		wrrobj.waitForAlert();
+		String pText = wrrobj.getAlertText();
+		return pText;
+	}
+
+	public void ClickTextfield1() {
+		withdrawTextfield.sendKeys("10,000");
+	}
+
+	public void ClickOnBankManager() {
+		wrrobj.waitForElement(bBank);
+		bBank.click();
+	}
+
+	public void ClickOnBankAdd() {
+		wrrobj.waitForElement(bAdd);
+		bAdd.click();
+	}
+
+	public String ClickOnAddCustomerButton() {
+		bAddutton.click();
+		wrrobj.waitForAlert();
+		String pText = wrrobj.getAlertText();
+		return pText;
+	}
+
+	public void ClickCustomerfield1() {
+		bFname.sendKeys("Anju");
+		bLname.sendKeys("Joju");
+		bPostcode.sendKeys("680908");
+	}
+
+	public void ClickSelectBankLogin() {
+		wrrobj.waitForElement(customName);
+		customName.click();
+		List<WebElement> dropDownList = new ArrayList<WebElement>();
+		dropDownList = driver.findElements(By.xpath("//select//option"));
+		dropDownList.get(3).click();
+	}
+
+	public void ClickOnProcess() {
+		wrrobj.waitForElement(processButton);
+		processButton.click();
+	}
+
+}
