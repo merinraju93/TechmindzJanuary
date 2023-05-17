@@ -1,0 +1,64 @@
+package com.testcase;
+
+public class BankmanagerLanuch extends TestBase
+{
+BankManagerPage bankManagerPage;
+
+public BankManagerModule()
+{
+super();
+}
+@BeforeClass
+public void setUp()
+{
+initialization();
+bankManagerPage=new BankManagerPage();
+}
+@Test (priority=1)
+public void customerModule()
+{
+System.out.println(&quot;Page Loaded&quot;);
+}
+@Test (priority=2)
+public void clickOnBMLogin()
+{
+bankManagerPage.clickBankManagerLogin();
+}
+@Test (priority=3)
+public void clickOnAddCustomer()
+{
+bankManagerPage.clickAddCustomer();
+}
+@Test (priority=5)
+public void enterTheDetails()
+{
+bankManagerPage.enterCustomerDetails();
+
+}
+@Test (priority=6)
+public void clickOnSubmitDetails()
+{
+//bankManagerPage.clickSubmitDetails();
+String pText=bankManagerPage.clickSubmitDetails();
+Assert.assertEquals(pText, &quot;Customer added successfully with customer id :6&quot;);
+}
+@Test (priority=6)
+public void clickonOpenAccountab()
+{
+bankManagerPage.clickOpenAccountTab();
+}
+@Test (priority=7)
+public void clickOnOpenAccount()
+{
+String pText=bankManagerPage.clickOpenAccount();
+Assert.assertEquals(pText, &quot;Account created successfully with account Number
+:1016&quot;);
+}
+@Test (priority=8)
+public void clickOnCustomersList()
+{
+bankManagerPage.clickOnCustomersTab();
+}
+} {
+
+}

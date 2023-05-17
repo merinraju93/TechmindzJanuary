@@ -1,0 +1,94 @@
+package com.pages;
+
+public class BanklMangerPage extends TestBase
+{
+Wrapper wrpobj=new Wrapper();
+@FindBy(xpath=&quot;//*[text()=\&quot;Bank Manager Login\&quot;]&quot;)
+WebElement pBankManagerLogin;
+@FindBy(xpath=&quot;//button[@ng-click=&#39;addCust()&#39;]&quot;)
+WebElement pAddCustomer;
+@FindBy(xpath=&quot;//input[@ng-model=&#39;fName&#39;]&quot;)
+WebElement pFirstName;
+@FindBy(xpath=&quot;//input[@ng-model=&#39;lName&#39;]&quot;)
+WebElement pLastName;
+@FindBy(xpath=&quot;//input[@ng-model=&#39;postCd&#39;]&quot;)
+WebElement pPostCode;
+@FindBy(xpath=&quot;//button[@type=\&quot;submit\&quot;]&quot;)
+WebElement pAddSubmit;
+@FindBy(xpath=&quot;//button[@ng-click=&#39;openAccount()&#39;]&quot;)
+WebElement pOpenAccount;
+@FindBy(xpath=&quot;//*[@id=\&quot;userSelect\&quot;]&quot;)
+
+WebElement pSelectCName;
+@FindBy(xpath=&quot;//*[@id=\&quot;currency\&quot;]&quot;)
+WebElement pCurrency;
+@FindBy(xpath=&quot;//*[text()=\&quot;Process\&quot;]&quot;)
+WebElement pProcess;
+@FindBy(xpath=&quot;//button[@ng-click=\&quot;showCust()\&quot;]&quot;)
+WebElement pCustomersList;
+@FindBy(xpath=&quot; //input[@ng-model=\&quot;searchCustomer\&quot;]&quot;)
+WebElement pSearchCustomers;
+@FindBy(xpath=&quot;//button[@ng-click=\&quot;deleteCust(cust)\&quot;]&quot;)
+WebElement pDeleteCustomer;
+public BankManagerPage()
+{
+PageFactory.initElements(driver, this);
+}
+public void clickBankManagerLogin()
+{
+wrpobj.waitForElement(pBankManagerLogin);
+pBankManagerLogin.click();
+wrpobj.waitForElement(pAddCustomer);
+}
+public void clickAddCustomer()
+{
+wrpobj.waitForElement(pAddCustomer);
+pAddCustomer.click();
+wrpobj.waitForElement(pFirstName);
+}
+public void enterCustomerDetails()
+{
+
+pFirstName.sendKeys(&quot;Karishma&quot;);
+pLastName.sendKeys(&quot;Sharma&quot;);
+pPostCode.sendKeys(&quot;Delhi&quot;);
+}
+public String clickSubmitDetails()
+{
+wrpobj.waitForElement(pAddSubmit);
+pAddSubmit.click();
+//wrpobj.waitForElement(pDepsitMessage);
+wrpobj.waitForAlert();
+String pText=wrpobj.getAlertText();
+wrpobj.alertAccept();
+wrpobj.waitForElement(pOpenAccount);
+return pText;
+}
+public void clickOpenAccountTab()
+{
+wrpobj.waitForElement(pOpenAccount);
+pOpenAccount.click();
+wrpobj.waitForElement(pSelectCName);
+}
+public String clickOpenAccount()
+{
+wrpobj.waitForElement(pSelectCName);
+wrpobj.selectByIndex(pSelectCName, 1);
+wrpobj.selectByIndex(pCurrency, 1);
+pProcess.click();
+wrpobj.waitForAlert();
+String pText=wrpobj.getAlertText();
+
+wrpobj.alertAccept();
+wrpobj.waitForElement(pCustomersList);
+return pText;
+}
+public void clickOnCustomersTab()
+{
+wrpobj.waitForElement(pCustomersList);
+pCustomersList.click();
+wrpobj.waitForElement(pSearchCustomers);
+}
+}{
+
+}
