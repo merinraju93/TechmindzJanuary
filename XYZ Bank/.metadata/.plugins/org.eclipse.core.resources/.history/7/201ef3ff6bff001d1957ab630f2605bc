@@ -1,0 +1,144 @@
+package com.testcases;
+
+//import org.testng.Assert;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.base.TestBase;
+import com.pages.Home;
+
+public class LaunchURL extends TestBase
+{
+
+	    Home home;
+		public LaunchURL() 
+		{
+		super();
+		}
+		@BeforeClass
+		public void setUp()
+		{
+		initialization();
+		home=new Home();
+		}
+		@Test (priority=1)
+		public void launchURL() 
+	
+<button ng-class="btnClass1" class="btn btn-lg tab" ng-click="addCust()">Add Customer
+		<b ng-show="btnClass1 === 'btn-primary'" id="notch" class="notch ng-hide"></b></button>
+	{
+		System.out.println("URL Launched");
+		}
+	  
+		@Test (priority=2)
+		public void clickOnContact() 
+		{
+		
+			homePage.clickContactLink();
+		}
+		
+		@Test (priority=3)
+		public void enterOnEmail()
+		{
+		
+			homePage.enterEmail();
+		}
+		
+		@Test (priority=4)
+		public void enterTheContactName()
+		{
+		
+			homePage.enterContactName();
+		}
+		
+
+		@Test (priority=5)
+		public void enterTheMessage()
+		{
+		
+			homePage.enterMessage();
+		}
+		
+		@Test (priority=6)
+		public void clickSendMsgBtn()
+		{
+		
+			homePage.clickSendMessage();
+		}
+		
+		@Test (priority=7)
+		public void clickOnSignUp()
+		{
+		
+			homePage.clickSignUp();
+		
+		}
+		
+		@Test (priority=8)
+		public void enterTheSignUpserName()
+		{
+		
+			homePage.enterSignUpUserName();
+		}
+		
+		@Test (priority=9)
+		public void enterTheSignUpPassword()
+		{
+		
+			homePage.enterSignUpPassword();
+		}
+		
+		@Test (priority=10)
+		public void clickOnSignUpButon()
+		{
+			String pText=homePage.clickSignUpButton();
+			Assert.assertEquals(pText, "Sign up successful.");
+		}	
+	@Test (priority=11)
+		public void clickOnLogin()
+		{
+		
+			homePage.clickLogIn();
+		}
+		
+		@Test (priority=12)
+		public void enterTheUserName()
+		{
+		
+			homePage.enterUserName();
+		}
+		
+		@Test (priority=13)
+		public void enterThePassword()
+		{
+		
+			homePage.enterPassword();
+		}
+		
+		@Test (priority=14)
+		public void clickOnLoginButton()
+		{
+		
+			homePage.clickLogInButton();
+		
+		}
+		
+		@Test (priority=15)
+		public void clickOnLogOut()
+		{
+		
+			homePage.clickLogout();
+		}
+		
+	
+}
+
+
+
+
+	
+	
+
+
+

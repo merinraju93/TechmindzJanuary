@@ -1,0 +1,156 @@
+package com.pages;
+
+package com.pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+
+import org.openqa.selenium.support.FindBy;
+import com.base.TestBase;
+import com.wrapper.Wrapper;
+
+public class HomePage extends TestBase
+{
+  
+	
+	Wrapper wrpobj=new Wrapper();
+	@FindBy(xpath="//*[text()='Contact']")
+	WebElement pContact;
+	
+	@FindBy(xpath="//input[@type='text'][1]")
+	WebElement pEmail;
+	
+	@FindBy(xpath="//input[@id='recipient-name']")
+	WebElement pContactName;
+	
+    @FindBy(xpath="//textarea[@id='message-text']")
+    WebElement pMessage;
+    
+   @FindBy(xpath="//*[text()='Send message']")
+   WebElement pSendMessageButton;
+   
+   
+   @FindBy(xpath="//a[@id='login2']")
+   WebElement pLogIn;
+   
+   @FindBy(xpath="//input[@id='loginusername']")
+   WebElement pUserName;
+   
+   @FindBy(xpath="//input[@id='loginpassword']")
+   WebElement pPassword;
+   
+   @FindBy(xpath="//button[@onclick=\"logIn()\"]")
+   WebElement pLogInButton;
+   
+   @FindBy(xpath="//a[@id='signin2']")
+   WebElement pSignUp;
+   
+   @FindBy(xpath="//button[@onclick=\"register()\"]")
+   WebElement pSignUpButton;
+   
+   @FindBy(xpath="//input[@id='sign-username']")
+   WebElement pSignupUserName;
+   
+   @FindBy(xpath="//input[@id='sign-password']")
+   WebElement pSignUpPassword;
+ 
+   @FindBy(xpath="//*[@id=\"logout2\"]")
+   WebElement pLogOut;
+   
+ 	public HomePage()
+	{
+	  PageFactory.initElements(driver, this);
+	}
+	
+	public void clickContactLink()
+	
+	{
+		pContact.click();
+	    wrpobj.waitForElement(pSendMessageButton);
+	}
+	
+	public void enterEmail()
+	{
+	pEmail.sendKeys("arathytech1@gmail.com");
+	}
+	
+	public void enterContactName()
+	{
+		pContactName.sendKeys("Arathy");
+	}
+	
+	public void enterMessage()
+	{
+		pMessage.sendKeys("Welcome to DemoBlaze");
+	
+	}
+	
+	public void clickSendMessage()
+	{
+		pSendMessageButton.click();
+		wrpobj.waitForAlert();
+		wrpobj.alertAccept();
+		
+	}
+	
+  public void clickSignUp()
+	
+	{
+		pSignUp.click();
+	   wrpobj.waitForElement(pSignUpButton);
+		
+	}
+	
+    public void enterSignUpUserName()
+	{
+	  pSignupUserName.sendKeys("Arthy2791@gmail.com");
+
+	}
+
+    public void enterSignUpPassword()
+	{
+	// wrpobj.waitForElement(pPassword);
+	 pSignUpPassword.sendKeys("Arath26Sarath1");
+	}
+    
+    public String clickSignUpButton()
+	{
+    	pSignUpButton.click();
+   	    wrpobj.waitForAlert();	
+   	   String pText=wrpobj.getAlertText();
+       wrpobj.alertAccept();
+   	   return pText;
+  		}
+
+	 public void clickLogIn()
+	   {
+		 wrpobj.waitForElement(pLogIn);
+		  pLogIn.click();
+		  wrpobj.waitForElement(pLogInButton);
+		   }
+	 
+	 public void enterUserName()
+		{
+		 pUserName.sendKeys("Arthy2791@gmail.com");
+		
+		}
+	 
+	 public void enterPassword()
+		{
+		
+		 pPassword.sendKeys("Arath26Sarath1");
+		}
+	 
+	 public void clickLogInButton()
+		{
+		  
+		   pLogInButton.click();
+		   wrpobj.waitForElement(pLogOut);
+		  
+		}
+	 public void clickLogout()
+		{
+	
+	 pLogOut.click();
+		}
+}
